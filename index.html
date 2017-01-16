@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Smartmirror</title>
+
+
+        <!--
+            Styles
+        -->
+        <link rel="stylesheet" href="weather/weather-widget.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css">
+        <link rel="stylesheet" href="semantic/semantic.min.css">
+        <link rel="stylesheet" href="style.css">
+
+
+
+
+        <!--
+            Scripts
+        -->
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="moment.js"></script>
+        <script src="crossdomain.js"></script>
+        <script src="secret.js"></script>
+        <script src="weather/weather-widget.js"></script>
+        <script src="semantic/semantic.min.js"></script>
+
+<!--        <script src="fullcal/fullcalendar.min.js"></script>-->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
+        <script src="fullcal/gcal.min.js"></script>
+        <script src="fullcal/locale-all.js"></script>
+
+
+        <script src="script.js"></script>
+    </head>
+    <body>
+
+
+        <div id="wrap" class="ui raised segment">
+            <div id="weather"></div>
+
+            <div id="kvb">
+                <h2>Abfahrten von Fuldaerstr. <span id="deptime"></span></h2>
+                <table class="ui striped table">
+                    <thead>
+                        <tr>
+                            <th>Linie</th>
+                            <th>Richtung</th>
+                            <th>Abfahrt</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        <div id="calendarwrap">
+            <div id='calendar' class="ui raised segment"></div>
+        </div>
+
+    </body>
+</html>

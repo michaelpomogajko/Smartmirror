@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>Clouds</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Clouds" sketch:type="MSArtboardGroup">
+            <g sketch:type="MSLayerGroup">
+                <rect id="Rectangle-16" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0" width="128" height="128"></rect>
+                <path d="M42.55,89.9741359 C32.7721494,89.454123 25,81.1579757 25,71 C25,60.5065898 33.293925,52 43.525,52 C45.7143613,52 47.8150161,52.3895362 49.7646734,53.1047204 C51.516808,44.479722 58.9706117,38 67.9,38 C77.8040327,38 85.8927802,45.9714455 86.3997835,56.0000192 L86.3997814,56.0000193 C86.4081861,56.0000064 86.4165923,56 86.425,56 C95.5791197,56 103,63.6111593 103,73 C103,82.3888407 95.5791197,90 86.425,90 L42.55,90 L42.55,89.9741359 Z" id="Oval-1-Copy" fill-opacity="0.8" fill="#DDE1E6" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

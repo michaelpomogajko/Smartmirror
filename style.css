@@ -1,0 +1,76 @@
+body {
+/*
+    background-color: black;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+*/
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 300;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+
+#calendarwrap {
+    text-align: center;
+}
+
+#calendar {
+    margin-top: 200px;
+    width: 90%;
+    display: inline-block;
+}
+
+
+#wrap {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+#kvb{
+    margin-left: 55%;
+}
+
+#weather {
+    width: 45%;
+    float: left;
+    text-align: left;
+}
+
+#deptime{
+    float: right;
+}
+
+div.weather.widget {
+    width: 100%;
+    padding: 0px;
+}
+div.weather.widget .expand-wrapper.hide {
+    display: block;
+}
+
+a.expand.more {
+    display: none;
+}
+
+
+
+
+
+/* Calendar */
+
+.fc-day-grid-event .fc-content {
+    white-space: normal;
+    overflow: hidden;
+}
+
+.fc-right {
+    display:none;
+}
+
+.fc-today {
+    background: #F2F3F9 !important;
+}
