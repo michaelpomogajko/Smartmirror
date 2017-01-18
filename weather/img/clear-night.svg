@@ -12,7 +12,7 @@
                 <rect id="Rectangle-16" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0" width="128" height="128"></rect>
                 <g id="I-Copy-3">
                     <use fill="none" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
-                    <use fill-opacity="0.8" fill="#D1C7BC" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <use fill-opacity="0.8" fill="#000" fill-rule="evenodd" xlink:href="#path-1"></use>
                 </g>
             </g>
         </g>

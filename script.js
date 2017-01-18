@@ -1,6 +1,12 @@
 var forecastapi = "c15c48c01880d073edbbdff872853b14";
 var calapi = "AIzaSyDW7fB2DD_JngTXtuCIuvlnSOYH0nji_E8";
 
+var monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "November", "Dezember"];
+
+var tage = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+
+var punkt = false;
+
 function getStations(data){
     var buff = [];
 
@@ -26,8 +32,6 @@ function getStations(data){
 }
 
 function fillStations(stations){
-    var time = $("#deptime");
-    time.html(now());
     var table = $("#tbody");
     table.html("");
 
@@ -39,7 +43,6 @@ function fillStations(stations){
             </tr>`);
     });
 }
-
 
 function loadDepartures(){
     $.ajax({
@@ -93,6 +96,46 @@ function now(){
 
     return `${hours}:${minutes}`;
 }
+//function startTime() {
+//    var time = $('#time h1');
+//    var datum = $('#time p');
+//    var today = new Date();
+//    var h = today.getHours();
+//    var month = today.getMonth();
+//    var date = today.getDate();
+//    var day = today.getDay();
+//    var year = today.getFullYear();
+//    var m = today.getMinutes();
+//    var s = today.getSeconds();
+//    m = checkTime(m);
+//    s = checkTime(s);
+//    if(punkt){
+//        punkt = !punkt;
+//        time[0].innerHTML = h + ":" + m;
+//    } else {
+//        punkt = !punkt;
+//        time[0].innerHTML = h + "    " + m;
+//    }
+//
+//    time[0].innerHTML = h + ":" + m;
+//    datum[0].innterHTML = tage[day] + ", "+ date+ ". " + monate[month] +" "+ year;
+//
+//    var t = setTimeout(startTime, 500);
+//}
+//function checkTime(i) {
+//    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+//    return i;
+//}
+
+function todayFont(){
+    var date = new Date().getDate();
+
+    $('.fc-day-number').each(function(){
+        if(this.innerHTML == date){
+            $(this).addClass("today");
+        }
+    });
+}
 
 $(function(){
     loadWeather();
@@ -100,18 +143,22 @@ $(function(){
     loadCalendar();
 
     loadDepartures();
+
+    todayFont();
 });
 
 
-setInterval(function(){
-    $('#calendar').fullCalendar('refetchEvents');
-}, 1000*10);
 
-setInterval(function(){
-    $('#weather').html("");
-    loadWeather();
-}, 1000*60*10);
 
-setInterval(function(){
-    loadDepartures();
-}, 1000*10);
+//setInterval(function(){
+//    $('#calendar').fullCalendar('refetchEvents');
+//}, 1000*10);
+//
+//setInterval(function(){
+//    $('#weather').html("");
+//    loadWeather();
+//}, 1000*60*10);
+//
+//setInterval(function(){
+//    loadDepartures();
+//}, 1000*10);

@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Wind" sketch:type="MSArtboardGroup" stroke="#22F5F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Wind" sketch:type="MSArtboardGroup" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
             <g id="Path-16-Copy-3-+-Path-16-Copy-2" sketch:type="MSLayerGroup" transform="translate(36.000000, 51.000000)">
                 <path d="M0,12 L50,12 C54,12 56,9 56,6 C56,3 54,-1.04969723e-16 50,0" id="Path-16-Copy-3" sketch:type="MSShapeGroup"></path>
                 <path d="M0,32 L40,32 C44,32 46,29 46,26 C46,23 44,20 40,20" id="Path-16-Copy-4" sketch:type="MSShapeGroup" transform="translate(23.000000, 26.000000) scale(1, -1) translate(-23.000000, -26.000000) "></path>

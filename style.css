@@ -1,9 +1,7 @@
 body {
-/*
     background-color: black;
     -webkit-filter: invert(100%);
     filter: invert(100%);
-*/
 }
 
 h2 {
@@ -17,7 +15,7 @@ h2 {
 }
 
 #calendar {
-    margin-top: 200px;
+    margin-top: 150px;
     width: 90%;
     display: inline-block;
 }
@@ -57,9 +55,6 @@ a.expand.more {
 }
 
 
-
-
-
 /* Calendar */
 
 .fc-day-grid-event .fc-content {
@@ -67,10 +62,34 @@ a.expand.more {
     overflow: hidden;
 }
 
+.fc-content{
+    background-color: dimgray;
+    border-color: dimgray;
+}
+
+.fc-event {
+    background-color: dimgray;
+    border-color: dimgray;
+}
+
 .fc-right {
     display:none;
 }
 
 .fc-today {
-    background: #F2F3F9 !important;
+    background: #ddd !important;
 }
+
+.fc-unthemed thead {
+    border-color: rgba(0,0,0,0.1);
+}
+
+.today {
+    font-size: 1.7em;
+}
+
+/*
+.fc-title .fc-time{
+    color: white;
+}
+*/
