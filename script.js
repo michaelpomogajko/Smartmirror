@@ -58,7 +58,7 @@ function loadWeather(){
         lon: 6.958307,
         key: secret.forecastapi,
         celsius: true,
-        imgPath:"/weather/"
+        imgPath:"./weather/img/"
     });
 }
 
