@@ -1,13 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+
+
 body {
     background-color: black;
     -webkit-filter: invert(100%);
     filter: invert(100%);
+
+    font-family: 'Roboto', sans-serif !important;
 }
 
 h2 {
-    font-size: 24px;
+    font-family: 'Roboto', sans-serif !important;
     font-weight: 300;
-    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 
 #calendarwrap {
@@ -42,9 +48,14 @@ h2 {
     float: right;
 }
 
+.highlight {
+    background-color: #ddd !important;
+}
+
 div.weather.widget {
     width: 100%;
     padding: 0px;
+    color: rgba(0,0,0,.87);
 }
 div.weather.widget .expand-wrapper.hide {
     display: block;
@@ -52,6 +63,15 @@ div.weather.widget .expand-wrapper.hide {
 
 a.expand.more {
     display: none;
+}
+
+div.weather.widget section.forecasts div.forecast {
+    font-size: 18px;
+    color: rgba(0,0,0,.87);
+}
+
+div.weather.widget section.current span.temperature {
+    color: rgba(0,0,0,.87);
 }
 
 

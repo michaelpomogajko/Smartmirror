@@ -36,11 +36,20 @@ function fillStations(stations){
     table.html("");
 
     stations.forEach(function(stat){
+        if(stat.to == "Weiden West" || stat.to == "Junkersdorf") {
+            table.append(`<tr class="highlight">
+                <td>${stat.line}</td>
+                <td>${stat.to}</td>
+                <td>${stat.time}</td>
+                </tr>`);
+        } else {
+
         table.append(`<tr>
             <td>${stat.line}</td>
             <td>${stat.to}</td>
             <td>${stat.time}</td>
             </tr>`);
+        }
     });
 }
 
