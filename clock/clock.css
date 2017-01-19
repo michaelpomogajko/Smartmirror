@@ -3,7 +3,7 @@
 }
 
 #clockdigital {
-    background: #fff url("/clock/digital1.gif") no-repeat 162px 99px;
+    background: #fff url("digital.gif") no-repeat 162px 99px;
     height: 250px;
     margin: 0 auto;
     overflow: hidden;
