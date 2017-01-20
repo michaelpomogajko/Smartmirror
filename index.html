@@ -21,7 +21,7 @@
             Scripts
         -->
         <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script src="moment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
         <script src="crossdomain.js"></script>
         <script src="secret.js"></script>
         <script src="weather/weather-widget.js"></script>
@@ -29,22 +29,13 @@
         <script src="clock/clock.js"></script>
 
         <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
-        <script src="fullcal/gcal.min.js"></script>
-        <script src="fullcal/locale-all.js"></script>
+        <script src="calendar/gcal.min.js"></script>
+        <script src="calendar/locale-all.js"></script>
 
 
         <script src="script.js"></script>
     </head>
     <body>
-
-
-<!--
-       <div id="time">
-           <h1></h1>
-           <p></p>
-       </div>
-
--->
         <div id="cssclock">
             <div id="clockdigital">
                 <img src="./clock/digitalhours.gif" id="digitalhour" alt="Clocks hours" />
@@ -66,9 +57,7 @@
                             <th>Abfahrt</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody">
-
-                    </tbody>
+                    <tbody id="tbody"></tbody>
                 </table>
             </div>
 
