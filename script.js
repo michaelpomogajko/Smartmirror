@@ -80,7 +80,7 @@ function loadWeather(){
         cacheTime: 1,
         lat: 50.941357,
         lon: 6.958307,
-        key: params.forecastapi,
+        key: params.forecastApi,
         celsius: true,
         imgPath:"./weather/img/"
     });
@@ -88,15 +88,15 @@ function loadWeather(){
 
 function loadCalendar(){
     var calendar = $('#calendar').fullCalendar({
-        googleCalendarApiKey: params.calendarapi,
+        googleCalendarApiKey: params.calendarApi,
         locale: "de",
         timeFormat: "HH:mm",
         eventSources: [
             {
-                googleCalendarId: params.calendar_privat
+                googleCalendarId: params.calenderaIDs[0]
             },
             {
-                googleCalendarId: params.calendar_fh
+                googleCalendarId: params.calenderaIDs[1]
             }
         ]
     });
