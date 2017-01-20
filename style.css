@@ -52,6 +52,10 @@ h2 {
     background-color: #ddd !important;
 }
 
+.table {
+    border: 0px !important;
+}
+
 div.weather.widget {
     width: 100%;
     padding: 0px;
