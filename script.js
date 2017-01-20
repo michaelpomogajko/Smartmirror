@@ -1,16 +1,21 @@
-var forecastapi = "c15c48c01880d073edbbdff872853b14";
-var calapi = "AIzaSyDW7fB2DD_JngTXtuCIuvlnSOYH0nji_E8";
+//var monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "November", "Dezember"];
 
-var monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "November", "Dezember"];
+//var tage = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 
-var tage = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 
-var punkt = false;
+/**
+ * Smartmirror
+ * ---
+ * @author Michael Pomogajko (http://james.padolsey.com)
+ * @version 0.1
+ * ---
+ * Note: Read the README!
+ * ---
+ */
+
 
 function getStations(data){
     var buff = [];
-
-    console.log(data);
 
     var str = data.substring(data.indexOf("<span class=\"stand"), data.indexOf("<div id=\"mobil_impressum"));
 
@@ -58,7 +63,7 @@ function fillStations(stations){
 
 function loadDepartures(){
     $.ajax({
-        url: 'http://www.kvb-koeln.de/qr/517/',
+        url: `http://www.kvb-koeln.de/qr/${params.depID}/`,
         type: 'GET',
         success: function(res){
             getStations(res.responseText);
@@ -75,7 +80,7 @@ function loadWeather(){
         cacheTime: 1,
         lat: 50.941357,
         lon: 6.958307,
-        key: secret.forecastapi,
+        key: params.forecastapi,
         celsius: true,
         imgPath:"./weather/img/"
     });
@@ -83,37 +88,21 @@ function loadWeather(){
 
 function loadCalendar(){
     var calendar = $('#calendar').fullCalendar({
-        googleCalendarApiKey: secret.calendarapi,
+        googleCalendarApiKey: params.calendarapi,
         locale: "de",
         timeFormat: "HH:mm",
         eventSources: [
             {
-                googleCalendarId: secret.calendar_privat
+                googleCalendarId: params.calendar_privat
             },
             {
-                googleCalendarId: secret.calendar_fh
+                googleCalendarId: params.calendar_fh
             }
         ]
     });
 }
 
-function now(){
-    var date = new Date();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-
-    if (hours < 10) {
-        hours = "0"+hours;
-    }
-
-    if (minutes < 10) {
-        minutes = "0"+minutes;
-    }
-
-    return `${hours}:${minutes}`;
-}
-
-function todayFont(){
+function todayBackgroundColor(){
     var date = new Date().getDate();
 
     $('.fc-day-number').each(function(){
@@ -124,7 +113,7 @@ function todayFont(){
 }
 
 $(function(){
-    todayFont();
+    todayBackgroundColor();
 
     loadWeather();
 
