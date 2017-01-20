@@ -10,6 +10,8 @@ var punkt = false;
 function getStations(data){
     var buff = [];
 
+    console.log(data);
+
     var str = data.substring(data.indexOf("<span class=\"stand"), data.indexOf("<div id=\"mobil_impressum"));
 
     $($(str)[2]).find('td').each(function(){
@@ -28,15 +30,16 @@ function getStations(data){
         }
     }
     fillStations(deps);
-
 }
 
 function fillStations(stations){
     var table = $("#tbody");
     table.html("");
 
+    var depset = new Set(["Weiden West", "Junkersdorf", "Universität", "Sülz"]);
+
     stations.forEach(function(stat){
-        if(stat.to == "Weiden West" || stat.to == "Junkersdorf") {
+        if(depset.has(stat.to)) {
             table.append(`<tr class="highlight">
                 <td>${stat.line}</td>
                 <td>${stat.to}</td>
@@ -59,6 +62,10 @@ function loadDepartures(){
         type: 'GET',
         success: function(res){
             getStations(res.responseText);
+            $('#notif').text("");
+        },
+        error: function(err){
+            $('#notif').text("Warning! Old data!");
         }
     });
 }
@@ -124,20 +131,20 @@ $(function(){
     loadCalendar();
 
     loadDepartures();
+
+
+    setInterval(function(){
+        $('#calendar').fullCalendar('refetchEvents');
+    }, 1000*60*60);
+
+    setInterval(function(){
+        $('#weather').html("");
+        loadWeather();
+    }, 1000*60*30);
+
+    setInterval(function(){
+        loadDepartures();
+    }, 1000*10);
+
+
 });
-
-
-
-
-//setInterval(function(){
-//    $('#calendar').fullCalendar('refetchEvents');
-//}, 1000*10);
-//
-//setInterval(function(){
-//    $('#weather').html("");
-//    loadWeather();
-//}, 1000*60*10);
-//
-//setInterval(function(){
-//    loadDepartures();
-//}, 1000*10);

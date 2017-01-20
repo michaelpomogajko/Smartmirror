@@ -44,8 +44,12 @@ h2 {
     text-align: left;
 }
 
-#deptime{
+#notif{
     float: right;
+}
+
+thead th {
+    background: #ccc !important;
 }
 
 .highlight {
