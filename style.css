@@ -1,8 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 
-
-
 body {
     background-color: black;
     -webkit-filter: invert(100%);
@@ -21,14 +19,14 @@ h2 {
 }
 
 #calendar {
-    margin-top: 150px;
-    width: 90%;
+    margin-top: 60px;
+    width: 95%;
     display: inline-block;
 }
 
 
 #wrap {
-    width: 90%;
+    width: 95%;
     margin: auto;
     padding: 20px;
     margin-top: 100px;

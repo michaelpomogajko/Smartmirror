@@ -45,25 +45,26 @@ function fillStations(stations){
 
     stations.forEach(function(stat){
         if(depset.has(stat.to)) {
+
+            table.append("<tr><td>"+stat.line+"</td><td>"+stat.to+"</td><td>"+stat.time+"</td></tr>");
+
+            /* ECMA6
             table.append(`<tr class="highlight">
                 <td>${stat.line}</td>
                 <td>${stat.to}</td>
                 <td>${stat.time}</td>
                 </tr>`);
-        } else {
 
-        table.append(`<tr>
-            <td>${stat.line}</td>
-            <td>${stat.to}</td>
-            <td>${stat.time}</td>
-            </tr>`);
-        }
+            */
+
+        } else {
+            table.append("<tr><td>"+stat.line+"</td><td>"+stat.to+"</td><td>"+stat.time+"</td></tr>");
     });
 }
 
 function loadDepartures(){
     $.ajax({
-        url: `http://www.kvb-koeln.de/qr/${params.depID}/`,
+        url: "http://www.kvb-koeln.de/qr/"+params.depID,
         type: 'GET',
         success: function(res){
             getStations(res.responseText);
@@ -91,6 +92,7 @@ function loadCalendar(){
         googleCalendarApiKey: params.calendarApi,
         locale: "de",
         timeFormat: "HH:mm",
+        height: 500,
         eventSources: [
             {
                 googleCalendarId: params.calenderaIDs[0]
