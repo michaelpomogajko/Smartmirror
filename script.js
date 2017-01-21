@@ -59,6 +59,7 @@ function fillStations(stations){
 
         } else {
             table.append("<tr><td>"+stat.line+"</td><td>"+stat.to+"</td><td>"+stat.time+"</td></tr>");
+        }
     });
 }
 
