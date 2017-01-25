@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="weather/weather-widget.css">
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css">
         <link rel="stylesheet" href="semantic/semantic.min.css">
-        <link rel="stylesheet" href="clock/clock.css">
         <link rel="stylesheet" href="style.css">
 
 
@@ -26,7 +25,6 @@
         <script src="params.js"></script>
         <script src="weather/weather-widget.js"></script>
         <script src="semantic/semantic.min.js"></script>
-        <script src="clock/clock.js"></script>
 
         <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
         <script src="calendar/gcal.min.js"></script>
@@ -36,14 +34,15 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <div id="cssclock">
-            <div id="clockdigital">
-                <img src="./clock/digitalhours.gif" id="digitalhour" alt="Clocks hours" />
-                <img src="./clock/digitalminutes.gif" id="digitalminute" alt="Clocks minutes" /><img src="./clock/digitalseconds.gif" id="digitalsecond" alt="Clocks seconds" />
-                <div>&nbsp</div>
-                <div>&nbsp</div>
-            </div>
+
+        <div id="clockhead">
+        <div id="clockwrap">
+            <h1 id="date"></h1>
+            <h1 id="clock"></h1>
+            <div style="clear:both;"></div>
         </div>
+        </div>
+
         <div id="wrap" class="ui raised segment">
             <div id="weather"></div>
 

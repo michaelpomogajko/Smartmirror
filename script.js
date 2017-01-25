@@ -1,8 +1,3 @@
-//var monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "November", "Dezember"];
-
-//var tage = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
-
-
 /**
  * Smartmirror
  * ---
@@ -12,6 +7,11 @@
  * Note: Read the README!
  * ---
  */
+
+
+var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "November", "Dezember"];
+
+var days = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 
 
 function getStations(data){
@@ -63,6 +63,27 @@ function fillStations(stations){
     });
 }
 
+function loadClock(){
+
+    // Format: Samstag, 21. Januar 2017
+
+    var displayDate = $('#date');
+    var displayClock = $('#clock');
+
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDay();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+
+    hours < 10 ? hours = "0"+hours:null;
+    minutes < 10 ? minutes = "0"+minutes:null;
+
+    displayDate.text(days[day] +", "+day+". "+months[month]+" "+year);
+    displayClock.text(hours+":"+minutes);
+}
+
 function loadDepartures(){
     $.ajax({
         url: "http://www.kvb-koeln.de/qr/"+params.depID,
@@ -93,7 +114,7 @@ function loadCalendar(){
         googleCalendarApiKey: params.calendarApi,
         locale: "de",
         timeFormat: "HH:mm",
-        height: 500,
+        height: 650,
         eventSources: [
             {
                 googleCalendarId: params.calenderaIDs[0]
@@ -104,6 +125,7 @@ function loadCalendar(){
         ]
     });
 }
+
 
 function todayBackgroundColor(){
     var date = new Date().getDate();
@@ -117,6 +139,8 @@ function todayBackgroundColor(){
 
 $(function(){
     todayBackgroundColor();
+
+    loadClock();
 
     loadWeather();
 
@@ -136,6 +160,10 @@ $(function(){
 
     setInterval(function(){
         loadDepartures();
+    }, 1000*10);
+
+    setInterval(function(){
+        loadClock();
     }, 1000*10);
 
 
