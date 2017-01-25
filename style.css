@@ -30,7 +30,7 @@ h1, h2 {
 #clockwrap {
     margin-top: 30px;
     display: inline-block;
-    width: 95%;
+    width: 100%;
 }
 
 #date {
@@ -46,7 +46,7 @@ h1, h2 {
 }
 
 #wrap {
-    width: 95%;
+    width: 100%;
     margin: auto;
     padding: 20px;
     margin-top: 50px;
@@ -112,7 +112,7 @@ div.weather.widget section.current span.temperature {
 
 #calendar {
     margin-top: 100px;
-    width: 95%;
+    width: 100%;
     display: inline-block;
 }
 
