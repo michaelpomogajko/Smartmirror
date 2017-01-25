@@ -1,7 +1,7 @@
 /**
  * Smartmirror
  * ---
- * @author Michael Pomogajko (http://james.padolsey.com)
+ * @author Michael Pomogajko
  * @version 0.1
  * ---
  * Note: Read the README!
