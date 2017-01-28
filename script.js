@@ -114,7 +114,7 @@ function loadCalendar(){
         googleCalendarApiKey: params.calendarApi,
         locale: "de",
         timeFormat: "HH:mm",
-        height: 600,
+        height: 650,
         eventSources: [
             {
                 googleCalendarId: params.calenderaIDs[0]
