@@ -41,22 +41,11 @@ function fillStations(stations){
     var table = $("#tbody");
     table.html("");
 
-    var depset = new Set(["Weiden West", "Junkersdorf", "Universität", "Sülz"]);
+    var destset = ["Weiden West", "Junkersdorf", "Universität", "Sülz"];
 
     stations.forEach(function(stat){
-        if(depset.has(stat.to)) {
-
+        if(destset.indexOf(stat.to) != -1) {
             table.append("<tr class='highlight'><td>"+stat.line+"</td><td>"+stat.to+"</td><td>"+stat.time+"</td></tr>");
-
-            /* ECMA6
-            table.append(`<tr class="highlight">
-                <td>${stat.line}</td>
-                <td>${stat.to}</td>
-                <td>${stat.time}</td>
-                </tr>`);
-
-            */
-
         } else {
             table.append("<tr><td>"+stat.line+"</td><td>"+stat.to+"</td><td>"+stat.time+"</td></tr>");
         }
@@ -114,7 +103,7 @@ function loadCalendar(){
         googleCalendarApiKey: params.calendarApi,
         locale: "de",
         timeFormat: "HH:mm",
-        height: 650,
+        height: 620,
         eventSources: [
             {
                 googleCalendarId: params.calenderaIDs[0]
