@@ -14,12 +14,10 @@ h1, h2 {
     font-weight: 300;
 }
 
-/*
 .ui.raised.segments, .ui.segment {
     border: 0px !important;
     box-shadow: none !important;
 }
-*/
 
 
 
@@ -49,7 +47,7 @@ h1, h2 {
     width: 100%;
     margin: auto;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 #kvb{
@@ -111,7 +109,7 @@ div.weather.widget section.current span.temperature {
 }
 
 #calendar {
-    margin-top: 100px;
+    margin-top: 90px;
     width: 100%;
     display: inline-block;
 }
