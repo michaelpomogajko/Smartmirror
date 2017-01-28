@@ -46,7 +46,7 @@ function fillStations(stations){
     stations.forEach(function(stat){
         if(depset.has(stat.to)) {
 
-            table.append("<tr><td>"+stat.line+"</td><td>"+stat.to+"</td><td>"+stat.time+"</td></tr>");
+            table.append("<tr class='highlight'><td>"+stat.line+"</td><td>"+stat.to+"</td><td>"+stat.time+"</td></tr>");
 
             /* ECMA6
             table.append(`<tr class="highlight">
