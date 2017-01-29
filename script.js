@@ -67,8 +67,6 @@ function loadClock(){
     var hours = date.getHours();
     var minutes = date.getMinutes();
 
-    console.log(day);
-
     hours < 10 ? hours = "0"+hours:null;
     minutes < 10 ? minutes = "0"+minutes:null;
 
