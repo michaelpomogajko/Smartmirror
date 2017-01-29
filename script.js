@@ -62,14 +62,17 @@ function loadClock(){
     var date = new Date();
     var year = date.getFullYear();
     var month = date.getMonth();
-    var day = date.getDay();
+    var weekday = date.getDay();
+    var day = date.getDate();
     var hours = date.getHours();
     var minutes = date.getMinutes();
+
+    console.log(day);
 
     hours < 10 ? hours = "0"+hours:null;
     minutes < 10 ? minutes = "0"+minutes:null;
 
-    displayDate.text(days[day] +", "+day+". "+months[month]+" "+year);
+    displayDate.text(days[weekday] +", "+day+". "+months[month]+" "+year);
     displayClock.text(hours+":"+minutes);
 }
 
