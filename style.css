@@ -45,7 +45,6 @@ h1, h2 {
 #wrap {
     width: 100%;
     margin: auto;
-    padding: 20px;
     margin-top: 40px;
 }
 
@@ -67,6 +66,11 @@ thead th {
 
 .table {
     border: 0px !important;
+}
+
+
+.ui.segment {
+    padding: 0;
 }
 
 
