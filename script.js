@@ -168,9 +168,9 @@ $(function () {
         loadWeather();
     }, 1000 * 60 * 30);
 
-//    setInterval(function () {
-//        loadDepartures();
-//    }, 1000 * 15);
+    setInterval(function () {
+        loadDepartures();
+    }, 1000 * 15);
 
     setInterval(function () {
         loadClock();
