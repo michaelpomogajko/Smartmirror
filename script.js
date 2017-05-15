@@ -15,15 +15,18 @@ var days = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"
 
 
 function getStations(data) {
-
     try {
         var buff = [];
 
-        var str = data.substring(data.indexOf("<span class=\"stand"), data.indexOf("<div id=\"mobil_impressum"));
+        var str = "<span " + data.substring(data.indexOf("class=\"stand"), data.indexOf("<div id=\"mobil_impressum"));
 
+        console.log(str);
         $($(str)[2]).find('td').each(function () {
             buff.push(this);
         });
+
+        //console.log($($(str)[2]));
+        console.log("------------\n", buff);
 
         var deps = [];
 
@@ -80,11 +83,23 @@ function loadClock() {
 }
 
 function loadDepartures() {
+//    $.ajax({
+//        url: "http://www.kvb-koeln.de/qr/" + params.depID,
+//        type: 'GET',
+//        success: function (res) {
+//            getStations(res.responseText);
+//            $('#notif').text("");
+//        },
+//        error: function (err) {
+//            $('#notif').text("Warning! Old data!");
+//        }
+//    });
+
     $.ajax({
-        url: "http://www.kvb-koeln.de/qr/" + params.depID,
+        url: "https://crossorigin.me/http://www.kvb-koeln.de/qr/" + params.depID,
         type: 'GET',
         success: function (res) {
-            getStations(res.responseText);
+            getStations(res);
             $('#notif').text("");
         },
         error: function (err) {
@@ -153,9 +168,9 @@ $(function () {
         loadWeather();
     }, 1000 * 60 * 30);
 
-    setInterval(function () {
-        loadDepartures();
-    }, 1000 * 15);
+//    setInterval(function () {
+//        loadDepartures();
+//    }, 1000 * 15);
 
     setInterval(function () {
         loadClock();
