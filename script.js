@@ -127,10 +127,10 @@ function loadCalendar() {
         height: 620,
         eventSources: [
             {
-                googleCalendarId: params.calenderIDs[0]
+                googleCalendarId: params.calendarIDs[0]
             },
             {
-                googleCalendarId: params.calenderIDs[1]
+                googleCalendarId: params.calendarIDs[1]
             }
         ]
     });
