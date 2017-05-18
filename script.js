@@ -20,13 +20,9 @@ function getStations(data) {
 
         var str = "<span " + data.substring(data.indexOf("class=\"stand"), data.indexOf("<div id=\"mobil_impressum"));
 
-        console.log(str);
         $($(str)[2]).find('td').each(function () {
             buff.push(this);
         });
-
-        //console.log($($(str)[2]));
-        console.log("------------\n", buff);
 
         var deps = [];
 
