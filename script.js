@@ -83,29 +83,29 @@ function loadClock() {
 }
 
 function loadDepartures() {
-//    $.ajax({
-//        url: "http://www.kvb-koeln.de/qr/" + params.depID,
-//        type: 'GET',
-//        success: function (res) {
-//            getStations(res.responseText);
-//            $('#notif').text("");
-//        },
-//        error: function (err) {
-//            $('#notif').text("Warning! Old data!");
-//        }
-//    });
-
     $.ajax({
-        url: "https://crossorigin.me/http://www.kvb-koeln.de/qr/" + params.depID,
+        url: "http://www.kvb-koeln.de/qr/" + params.depID,
         type: 'GET',
         success: function (res) {
-            getStations(res);
+            getStations(res.responseText);
             $('#notif').text("");
         },
         error: function (err) {
             $('#notif').text("Warning! Old data!");
         }
     });
+
+//    $.ajax({
+//        url: "https://crossorigin.me/http://www.kvb-koeln.de/qr/" + params.depID,
+//        type: 'GET',
+//        success: function (res) {
+//            getStations(res);
+//            $('#notif').text("");
+//        },
+//        error: function (err) {
+//            $('#notif').text("Warning! Old data!");
+//        }
+//    });
 }
 
 function loadWeather() {
@@ -127,10 +127,10 @@ function loadCalendar() {
         height: 620,
         eventSources: [
             {
-                googleCalendarId: params.calenderaIDs[0]
+                googleCalendarId: params.calenderIDs[0]
             },
             {
-                googleCalendarId: params.calenderaIDs[1]
+                googleCalendarId: params.calenderIDs[1]
             }
         ]
     });
@@ -175,6 +175,4 @@ $(function () {
     setInterval(function () {
         loadClock();
     }, 1000 * 10);
-
-
 });
