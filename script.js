@@ -18,6 +18,7 @@ function getStations(data) {
     try {
         var buff = [];
 
+
         var str = "<span " + data.substring(data.indexOf("class=\"stand"), data.indexOf("<div id=\"mobil_impressum"));
 
         $($(str)[2]).find('td').each(function () {
@@ -36,8 +37,9 @@ function getStations(data) {
             }
         }
         fillStations(deps);
+        $('#notif').text("");
     } catch (err) {
-        $('#kvb h2').append("Error!");
+        $('#notif').text("Error");
     }
 }
 
