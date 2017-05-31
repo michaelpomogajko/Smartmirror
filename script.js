@@ -156,6 +156,9 @@ $(function () {
 
     loadDepartures();
 
+    setInterval(function(){
+        todayBackgroundColor();
+    }, 1000*60*60);
 
     setInterval(function () {
         $('#calendar').fullCalendar('refetchEvents');
