@@ -85,22 +85,25 @@ function loadDepartures() {
         url: "http://www.kvb-koeln.de/qr/" + params.depID,
         type: 'GET',
         success: function (res) {
-            getStations(res.responseText);
+            getStations(res);
             $('#notif').text("");
         },
         error: function (err) {
+            console.log(err);
             $('#notif').text("Warning! Old data!");
         }
     });
 
 //    $.ajax({
-//        url: "https://crossorigin.me/http://www.kvb-koeln.de/qr/" + params.depID,
+//        url: "http://anyorigin.com/go?url=http%3A//www.kvb-koeln.de/qr/517&callback=?",
 //        type: 'GET',
 //        success: function (res) {
 //            getStations(res);
+//            console.log(res);
 //            $('#notif').text("");
 //        },
 //        error: function (err) {
+//            console.log("err");
 //            $('#notif').text("Warning! Old data!");
 //        }
 //    });
