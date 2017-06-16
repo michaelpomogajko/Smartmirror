@@ -136,7 +136,7 @@ div.weather.widget section.current span.temperature {
     display:none;
 }
 
-.fc-today {
+.fc-state-highlight {
     background: #ddd !important;
 }
 
@@ -148,8 +148,3 @@ div.weather.widget section.current span.temperature {
     font-size: 1.7em;
 }
 
-/*
-.fc-title .fc-time{
-    color: white;
-}
-*/

@@ -138,18 +138,7 @@ function loadCalendar() {
 }
 
 
-function todayBackgroundColor() {
-    var date = new Date().getDate();
-
-    $('.fc-day-number').each(function () {
-        if (this.innerHTML == date) {
-            $(this).addClass("today");
-        }
-    });
-}
-
 $(function () {
-    todayBackgroundColor();
 
     loadClock();
 
@@ -162,7 +151,6 @@ $(function () {
 
     setInterval(function () {
         $('#calendar').fullCalendar('refetchEvents');
-        todayBackgroundColor();
     }, 1000 * 60 * 60);
 
     setInterval(function () {
