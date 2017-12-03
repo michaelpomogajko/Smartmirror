@@ -43,6 +43,29 @@ function getStations(data) {
     }
 }
 
+function getStationBerlin(data) {
+    var buff = [];
+    var deps = []
+//    var str ="<span "+ data.substring(data.indexOf("stationOverview"), data.indexOf("</table"));
+//    console.log(str);
+    $($(data).find('table')[0]).find('td').each(function() {
+        buff.push(this.innerText.replace(/(\r\n|\n|\r)/gm,""));
+    });
+    console.log(buff);
+
+    for (var i = 0; i < 30; i++) {
+        if (i % 3 === 0) {
+            var dep = {};
+            dep.time = buff[i];
+            dep.line = buff[i + 1];
+            dep.to = buff[i + 2];
+            deps.push(dep);
+        }
+    }
+    fillStations(deps);
+    $('#notif').text("");
+}
+
 function fillStations(stations) {
     var table = $("#tbody");
     table.html("");
@@ -85,28 +108,35 @@ function loadDepartures() {
         url: "http://www.kvb-koeln.de/qr/" + params.depID,
         type: 'GET',
         success: function (res) {
+            console.log(res);
             getStations(res);
             $('#notif').text("");
         },
         error: function (err) {
+            console.log("Error");
             console.log(err);
             $('#notif').text("Warning! Old data!");
         }
     });
+}
 
-//    $.ajax({
-//        url: "http://anyorigin.com/go?url=http%3A//www.kvb-koeln.de/qr/517&callback=?",
-//        type: 'GET',
-//        success: function (res) {
-//            getStations(res);
-//            console.log(res);
-//            $('#notif').text("");
-//        },
-//        error: function (err) {
-//            console.log("err");
-//            $('#notif').text("Warning! Old data!");
-//        }
-//    });
+function loadDeparturesBerlin() {
+    console.log("loading depts");
+    var link = "https://fahrinfo.bvg.de/Fahrinfo/bin/stboard.bin/dn?boardType=depRT&application=FILTER&view=STATIONINFO&maxJourneys=20&REQProduct_5_name=yes&REQProduct_6_name=yes&REQProduct_0_name=yes&REQProduct_1_name=yes&REQProduct_2_name=yes&REQProduct_3_name=yes&REQProduct_4_name=yes&input=+S+Hackescher+Markt+%28Berlin%29&REQ0JourneyStopsSID=A%3D1%40O%3DS+Hackescher+Markt+%28Berlin%29%40X%3D13402359%40Y%3D52522605%40U%3D86%40L%3D900100002%40B%3D1%40p%3D1512043087%40&REQ0JourneyProduct_prod_list_6=0000001000000000&REQ0JourneyProduct_prod_list_0=1000000000000000&REQ0JourneyProduct_prod_list_1=0100000000000000&REQ0JourneyProduct_prod_list_2=0010000000000000&REQ0JourneyProduct_prod_list_3=0001000000000000&REQ0JourneyProduct_prod_list_4=0000100000000000&existBikeEverywhere=yes&selectDate=today&timeselectEnd=Zurücksetzen&start="
+
+    $.ajax({
+        url: link,
+        type: 'GET',
+        success: function (res) {
+            console.log("success");
+            getStationBerlin(res);
+        },
+        error: function (err) {
+            console.log("Error");
+            console.log(err);
+        }
+    });
+
 }
 
 function loadWeather() {
@@ -148,6 +178,7 @@ $(function () {
 
     loadDepartures();
 
+//    loadDeparturesBerlin();
 
     setInterval(function () {
         $('#calendar').fullCalendar('refetchEvents');
