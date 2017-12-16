@@ -9,7 +9,7 @@
  */
 
 
-var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "November", "Dezember"];
+var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 
 var days = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 
@@ -17,22 +17,22 @@ var days = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"
 function getStations(data) {
     try {
         var buff = [];
+        var str = data.substring(data.indexOf("<div class=\"col-sm12\""), data.indexOf("<div class=\"row\">"));
 
-
-        var str = "<span " + data.substring(data.indexOf("class=\"stand"), data.indexOf("<div id=\"mobil_impressum"));
-
-        $($(str)[2]).find('td').each(function () {
-            buff.push(this);
+        $(str).find('td').each(function() {
+            buff.push(this.innerText)
         });
+
+        buff.splice(0,4);
 
         var deps = [];
 
         for (var i = 0; i < 30; i++) {
             if (i % 3 === 0) {
                 var dep = {};
-                dep.line = buff[i].innerText;
-                dep.to = buff[i + 1].innerText;
-                dep.time = buff[i + 2].innerText;
+                dep.line = buff[i];
+                dep.to = buff[i + 1];
+                dep.time = buff[i + 2];
                 deps.push(dep);
             }
         }
@@ -51,7 +51,6 @@ function getStationBerlin(data) {
     $($(data).find('table')[0]).find('td').each(function() {
         buff.push(this.innerText.replace(/(\r\n|\n|\r)/gm,""));
     });
-    console.log(buff);
 
     for (var i = 0; i < 30; i++) {
         if (i % 3 === 0) {
@@ -96,6 +95,8 @@ function loadClock() {
     var hours = date.getHours();
     var minutes = date.getMinutes();
 
+    console.log(month);
+
     hours < 10 ? hours = "0" + hours : null;
     minutes < 10 ? minutes = "0" + minutes : null;
 
@@ -108,20 +109,20 @@ function loadDepartures() {
         url: "http://www.kvb-koeln.de/qr/" + params.depID,
         type: 'GET',
         success: function (res) {
-            console.log(res);
+//            console.log(res);
             getStations(res);
             $('#notif').text("");
         },
         error: function (err) {
-            console.log("Error");
-            console.log(err);
+//            console.log("Error");
+//            console.log(err);
             $('#notif').text("Warning! Old data!");
         }
     });
 }
 
 function loadDeparturesBerlin() {
-    console.log("loading depts");
+//    console.log("loading depts");
     var link = "https://fahrinfo.bvg.de/Fahrinfo/bin/stboard.bin/dn?boardType=depRT&application=FILTER&view=STATIONINFO&maxJourneys=20&REQProduct_5_name=yes&REQProduct_6_name=yes&REQProduct_0_name=yes&REQProduct_1_name=yes&REQProduct_2_name=yes&REQProduct_3_name=yes&REQProduct_4_name=yes&input=+S+Hackescher+Markt+%28Berlin%29&REQ0JourneyStopsSID=A%3D1%40O%3DS+Hackescher+Markt+%28Berlin%29%40X%3D13402359%40Y%3D52522605%40U%3D86%40L%3D900100002%40B%3D1%40p%3D1512043087%40&REQ0JourneyProduct_prod_list_6=0000001000000000&REQ0JourneyProduct_prod_list_0=1000000000000000&REQ0JourneyProduct_prod_list_1=0100000000000000&REQ0JourneyProduct_prod_list_2=0010000000000000&REQ0JourneyProduct_prod_list_3=0001000000000000&REQ0JourneyProduct_prod_list_4=0000100000000000&existBikeEverywhere=yes&selectDate=today&timeselectEnd=Zurücksetzen&start="
 
     $.ajax({
