@@ -12,6 +12,7 @@
 var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 
 var days = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+var errrorCount = 0;
 
 
 function getStations(data) {
@@ -95,8 +96,6 @@ function loadClock() {
     var hours = date.getHours();
     var minutes = date.getMinutes();
 
-    console.log(month);
-
     hours < 10 ? hours = "0" + hours : null;
     minutes < 10 ? minutes = "0" + minutes : null;
 
@@ -109,14 +108,16 @@ function loadDepartures() {
         url: "http://www.kvb-koeln.de/qr/" + params.depID,
         type: 'GET',
         success: function (res) {
-//            console.log(res);
-            getStations(res);
-            $('#notif').text("");
+          // console.log(res);
+          getStations(res);
+          $('#header').text("Abfahrten von Fuldaerstr.");
+          // console.log("succes");
+          errrorCount = 0;
         },
         error: function (err) {
-//            console.log("Error");
-//            console.log(err);
-            $('#notif').text("Warning! Old data!");
+          console.log("Error");
+          // console.log(err);
+          $('#header').text("Error #" + errrorCount++);
         }
     });
 }
@@ -157,6 +158,8 @@ function loadCalendar() {
         locale: "de",
         timeFormat: "HH:mm",
         height: 620,
+        eventColor: '#494949',
+        weekNumbers: true,
         eventSources: [
             {
                 googleCalendarId: params.calendarIDs[0]

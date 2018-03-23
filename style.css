@@ -122,29 +122,16 @@ div.weather.widget section.current span.temperature {
     overflow: hidden;
 }
 
-.fc-content{
-    background-color: dimgray;
-    border-color: dimgray;
-}
-
-.fc-event {
-    background-color: dimgray;
-    border-color: dimgray;
-}
-
 .fc-right {
     display:none;
 }
 
-.fc-state-highlight {
-    background: #ddd !important;
-}
+/* .fc-state-highlight {
+  background: #ddd !important;
+  font-size: 1.5em;
+} */
 
-.fc-unthemed thead {
-    border-color: rgba(0,0,0,0.1);
+.fc-today {
+  background: #fff !important;
+  font-size: 1.7em;
 }
-
-.today {
-    font-size: 1.7em;
-}
-
